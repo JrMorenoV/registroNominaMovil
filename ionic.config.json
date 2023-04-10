@@ -1,0 +1,7 @@
+{
+  "name": "registroNomina",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
