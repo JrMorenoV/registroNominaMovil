@@ -9,42 +9,22 @@ import { AgregarPersonasPage } from './paginasAdministrador/agregar-personas/agr
 import { HomePage } from './home/home.page';
 import { ListaPersonasPage } from './paginasAdministrador/lista-personas/lista-personas.page';
 import { EditorPersonasPage } from './paginasAdministrador/editor-personas/editor-personas.page';
-
+import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from './app-routin.module';
 
 
 
 @NgModule({
-  declarations: [
+  declarations: [AppComponent
     
     
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      {
-        path: 'home',
-        component: HomePage,
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'lista-personas',
-        component: ListaPersonasPage
-      },
-      {
-        path: 'editor-personas',
-        component: EditorPersonasPage
-      },
-      {
-        path: 'agregar-personas',
-        component: AgregarPersonasPage
-      }
-    ]),
+    CommonModule,
     GeneralesModule,
     IonicModule.forRoot({}),
 

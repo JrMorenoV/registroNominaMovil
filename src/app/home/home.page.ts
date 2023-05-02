@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AgregarPersonasPage } from '../paginasAdministrador/agregar-personas/agregar-personas.page';
-
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,6 +11,11 @@ import { AgregarPersonasPage } from '../paginasAdministrador/agregar-personas/ag
   imports: [IonicModule, FormsModule, ReactiveFormsModule,],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private navCtrl: NavController) {}
   creacionTercero = AgregarPersonasPage;
+
+
+  navigateToPage() {
+    this.navCtrl.navigateForward('/agregar-personas');
+  }
 }
