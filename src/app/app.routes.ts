@@ -10,4 +10,16 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'lista-personas',
+    loadComponent: () => import('./paginasAdministrador/lista-personas/lista-personas.page').then( m => m.ListaPersonasPage)
+  },
+  {
+    path: 'editor-personas',
+    loadComponent: () => import('./paginasAdministrador/editor-personas/editor-personas.page').then( m => m.EditorPersonasPage)
+  },
+  {
+    path: 'agregar-personas',
+    loadComponent: () => import('./paginasAdministrador/agregar-personas/agregar-personas.page').then( m => m.AgregarPersonasPage)
+  },
 ];

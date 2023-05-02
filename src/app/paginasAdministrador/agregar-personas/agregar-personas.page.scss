@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #e1f1f1;
+}
+
+h2 {
+    color: black;
+    background-color: rgb(158, 201, 209);
+    text-indent: 30px;
+    border-radius: 10px;
+    margin: 0px 8px 8px 8px;
+
+}
+input{
+    width: 98%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background: #b9d9e7;
+    color: black;
+}
+
+.for-row{
+    width: 400px;
+    background: #c1e5e7;
+    padding: 30px;
+    margin: 8px 8px 8px 8px;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: rgb(196, 232, 233);
+}

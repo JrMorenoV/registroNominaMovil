@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editor de Empleados</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home">Inicio</ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Editor de Empleados</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <section class="search__container">
+      <div class="search__cedula">
+        <label for="searchCedula">Buscar Cedula</label>
+        <input type="number" class="search__input" placeholder="Numero de Cedula" [(ngModel)]="cedula">
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" (click)="buscarTerceros()">Buscar</button>
+      </div>
+    </section>
+    
+    <form class="form-row" [formGroup]="tercerosForm" *ngIf="datosTerceros">
+      <div class="form-group col-md-2">
+        <label for="cedula" class="sr-only">Numero de Documento</label><br>
+        <output name="cedula" class="form-control" id="cedula" > {{datosTerceros.cedula}} </output>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="nombre" class="sr-only">Nombres</label>
+        <input type="string" name="nombre" id="nombre" class="form-control" placeholder="Nombres" formControlName="nombre" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['nombre'].touched && tercerosForm.controls['nombre'].hasError('required')">Este campo es Requerido</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="apellido" class="sr-only">Apellidos</label>
+        <input type="string" name="apellido" id="apellido" class="form-control" placeholder="Apellidos" formControlName="apellido" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['apellido'].touched && tercerosForm.controls['apellido'].hasError('required')">Este Campo es Requerido</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="cargo" class="sr-only">Cargo</label>
+        <input type="string" name="cargo" id="cargo" class="form-control" placeholder="Cargo" formControlName="cargo" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['cargo'].hasError('required') && tercerosForm.controls['cargo'].touched">Este Campo es Requerido</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="area" class="sr-only">Área de Trabajo</label>
+        <input type="string" name="area" id="area" class="form-control" placeholder="Área de Trabajo" formControlName="area" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['area'].hasError('required') && tercerosForm.controls['area'].touched">Este Campo es Requerido</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="salario" class="sr-only">Salario</label>
+        <input type="string" name="salario" class="form-control" placeholder="Salario" formControlName="salario" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['salario'].hasError('required') && tercerosForm.controls['salario'].touched">Este Campo es Requerido</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="correo" class="sr-only">Correo</label>
+        <input type="string" name="correo" id="correo" class="form-control" placeholder="Correo" formControlName="correo" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['correo'].hasError('required') && tercerosForm.controls['correo'].touched">Este Campo es Requerido</span>
+        <span class="text-danger" *ngIf="tercerosForm.controls['correo'].hasError('email') && tercerosForm.controls['correo'].touched">El Valor Ingresado no Corresponde a un Correo</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" name="fechaNacimiento" id="fechaNacimiento" class="form-control" placeholder="Fecha de Nacimiento" formControlName="fechaNacimiento" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['fechaNacimiento'].hasError('required') && tercerosForm.controls['fechaNacimiento'].touched">Este Campo es Requerido</span>
+        <span class="text-danger" *ngIf="tercerosForm.controls['fechaNacimiento'].hasError('fechaNacimiento') && tercerosForm.controls['fechaNacimiento'].touched">Este Campo Corresponde a una Fecha</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="fechaIngreso" class="form-label">Fecha de Inicio Contrato</label>
+        <input type="date" name="fechaIngreso" id="fechaIngreso" class="form-control" placeholder="Fecha Inicio de Contrato" formControlName="fechaIngreso" required />
+        <span class="text-danger" *ngIf="tercerosForm.controls['fechaNacimiento'].hasError('required') && tercerosForm.controls['fechaNacimiento'].touched">Este Campo es Requerido</span>
+        <span class="text-danger" *ngIf="tercerosForm.controls['fechaNacimiento'].hasError('fechaNacimiento') && tercerosForm.controls['fechaNacimiento'].touched">Este Campo Corresponde a una Fecha</span>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="fechaFinal" class="form-label">Fecha de Finalización del Contrato</label>
+        <input type="date" name="fechaFinal" id="fechaFinal" class="form-control" placeholder="Fecha de Finalización del Contrato" formControlName="fechaFinal" />
+        <span class="text-danger" *ngIf="tercerosForm.controls['fechaNacimiento'].hasError('fechaNacimiento')">Este Campo Corresponde a una Fecha</span>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" (click)="editorEmpleado()" [disabled]="tercerosForm.invalid">Modificar</button>
+      </div>
+
+    </form>
+  </ion-grid>
+  
+</ion-content>

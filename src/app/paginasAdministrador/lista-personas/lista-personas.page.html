@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Listado de Empleados</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home">Inicio</ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Listado de Empleados</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="container">
+    <div class="row">
+      <div class="col" card-header d-flex justify-content-between>
+        <table>
+          <thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Cedula</th>
+            <th>Cargo</th>
+            <th>Area</th>
+            <th>Salario</th>
+            <th>Correo</th>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let persona of personas; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{persona.nombre}} </td>
+              <td>{{persona.apellido}} </td>
+              <td>{{persona.cedula}} </td>
+              <td>{{persona.cargo}} </td>
+              <td>{{persona.area}}</td>
+              <td>{{persona.salario}}</td>
+              <td>{{persona.correo}}</td>
+            </tr>
+          </tbody>
+      </table>  
+      </div>
+    </div>
+  </div>
+</ion-content>
